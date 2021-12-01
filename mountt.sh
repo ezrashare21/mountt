@@ -101,7 +101,7 @@ then
     
     mkdir mountpoint
     mount disk mountpoint -o uid=user,gid=user
-    $mountpath mountpoint
+    mountpath=$mountpoint
     
     echo "..done"!
     exit 0
