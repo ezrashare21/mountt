@@ -15,10 +15,6 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-echo "attempting to upgrade..."
-
-apt update
-apt upgrade
 if [ ! -d /mnt/mountt ]
 then
   mkdir /mnt/mountt
@@ -51,9 +47,20 @@ fi
 
 if [ $1 = unmount ]
 then
-    unmount /mnt/mountt/$2
+    umount /mnt/mountt/$2
     rm -rf /mnt/mountt/$2
     exit 0
+fi
+
+if [ $1 = upgrade ]
+then
+  git clone https://github.com/ezrashare21/mountt
+  cd mountt
+  chmod +x setup
+  sudo ./setup
+  cd ..
+  rm -rf mountt
+  exit 0
 fi
 
 if [ $1 = config-gen ]
@@ -71,9 +78,9 @@ then
     file=$2
     
     i=1
-    mountpoint = ""
-    disk = ""
-    user = ""
+    mountpoint=""
+    disk=""
+    user=""
     while read line; do
         if [ i = 1 ]
         then
@@ -104,6 +111,6 @@ echo "mounting drive..."
 
 mkdir /mnt/mountt/$2
 mount /dev/$1 /mnt/mountt/$2 -o uid=$3,gid=$3
-$mountpath = /mnt/mountt/$2
+mountpath=/mnt/mountt/$2
 
 echo "drive mounted succsessfuly!"
