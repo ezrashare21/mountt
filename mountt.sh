@@ -99,8 +99,8 @@ then
     
     echo "mounting drive... (config)"
     
-    mkdir mountpoint
-    mount disk mountpoint -o uid=user,gid=user
+    mkdir /mnt/mountt/$mountpoint
+    mount disk $mountpoint -o uid=user,gid=user
     mountpath=$mountpoint
     
     echo "..done"!
