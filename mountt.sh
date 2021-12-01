@@ -84,15 +84,15 @@ then
     while read line; do
         if [ i = 1 ]
         then
-            disk = $line
+            disk=$line
         fi
         if [ i = 2 ]
         then
-            mountpoint = $line
+            mountpoint=$line
         fi
         if [ i = 3 ]
         then
-            user = $line
+            user=$line
         fi
         i=$((i+1))
     done < $file
