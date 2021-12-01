@@ -29,7 +29,9 @@ mountt get-disk
 mountt get-uuid
 mountt unmount <name>
 mountt config-gen <file> <disk> <name> <user>
-mountt config <file>"
+mountt config <file>
+
+note: mountt config does not work. somebody please help."
     exit 0
 fi
 
