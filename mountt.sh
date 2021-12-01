@@ -23,9 +23,14 @@ mkdir /mnt/mountt
 
 if [ $1 = -h ]
 then
-    echo "$ 1 - drive to mount"
-    echo "$ 2 - what to name drive when mounted"
-    echo "$ 3 - user to assign uid and gid"
+    echo "Help:
+mountt <disk> <name> <user>
+mountt -h
+mountt get-disk
+mountt get-uuid
+mountt unmount <name>
+mountt config-gen <file> <disk> <name> <user>
+mountt config <file>"
     exit 0
 fi
 
