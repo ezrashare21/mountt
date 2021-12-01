@@ -1,1 +1,8 @@
-ok
+if [[ $EUID -ne 0 ]]; then
+  echo "you need to run this thingy as root ur else i will come to ur house"
+  exit 1
+fi
+
+cp mountt.sh mountt
+chmod +x mountt
+mv mountt /usr/local/bin
