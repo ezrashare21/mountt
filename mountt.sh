@@ -19,7 +19,10 @@ echo "attempting to upgrade..."
 
 apt update
 apt upgrade
-mkdir /mnt/mountt
+if [ ! -d /mnt/mountt ]
+then
+  mkdir /mnt/mountt
+fi
 
 if [ $1 = -h ]
 then
