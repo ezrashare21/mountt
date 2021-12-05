@@ -29,6 +29,7 @@ fi
 if [ $1 = list ]
 then
   ls /mnt/mountt
+  exit 0
 fi
 
 if [ $1 = -h ]
