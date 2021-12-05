@@ -77,51 +77,11 @@ then
   exit 0
 fi
 
-if [ $1 = config-gen ]
+if [ $1 = mountgen ]
 then
     touch $2
-    echo /dev/$3 >> $2
-    echo /mnt/mountt/$4 >> $2
-    echo $5 >> $2
-    exit 0
-fi
-
-if [ $1 = config ]
-then
-    # https://www.javatpoint.com/bash-read-file
-    file=$2
-    
-    i=1
-    mountpoint=""
-    disk=""
-    user=""
-    while read line; do
-        if [ i = 1 ]
-        then
-            disk=$line
-        fi
-        if [ i = 2 ]
-        then
-            mountpoint=$line
-        fi
-        if [ i = 3 ]
-        then
-            user=$line
-        fi
-        i=$((i+1))
-    done < $file
-    
-    echo "mounting drive... (config)"
-    
-    echo $disk
-    echo $mountpoint
-    echo $user
-    
-    mkdir /mnt/mountt/$mountpoint
-    mount $disk $mountpoint -o uid=$user,gid=$user
-    mountpath=$mountpoint
-    
-    echo "..done"!
+    echo sudo mountt $3 $4 $5 >> $2
+    chmod +x $2
     exit 0
 fi
 
