@@ -15,6 +15,11 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
+if [ $1 = uninstall ]
+then
+  rm /usr/local/bin/mountt
+fi
+
 if [ ! -d /mnt/mountt ]
 then
   mkdir /mnt/mountt
