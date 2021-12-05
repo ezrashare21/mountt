@@ -18,6 +18,7 @@ fi
 if [ $1 = uninstall ]
 then
   rm /usr/local/bin/mountt
+  exit 0
 fi
 
 if [ ! -d /mnt/mountt ]
