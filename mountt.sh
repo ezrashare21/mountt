@@ -26,6 +26,11 @@ then
   mkdir /mnt/mountt
 fi
 
+if [ $1 = list ]
+then
+  ls /mnt/mountt
+fi
+
 if [ $1 = -h ]
 then
     echo "Help:
